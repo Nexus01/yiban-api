@@ -44,7 +44,9 @@ def getHitokoto(CAT):
 https://yiju.ml/api/word.php
 '''
 
-Get_yiju = r.get('https://yiju.ml/api/word.php', timeout=10)
+def get_yiju():
+    Get_yiju = r.get('https://yiju.ml/api/word.php', timeout=10)
+    return Get_yiju
 
 def wait():
     return time.sleep(random.uniform(1000, 2000))
@@ -111,7 +113,7 @@ for username in user.keys():
         for i in range(0, add_vote_count):
 
             try:
-                print(nick + ': 添加投票 ' + ybvote.vote(token, puid, group_id).add(Get_yiju.text, 
+                print(nick + ': 添加投票 ' + ybvote.vote(token, puid, group_id).add(get_yiju().text, 
                 getHitokoto(cat), getHitokoto(cat), getHitokoto(cat)) + fprint(i))
             except:
                 print(nick + ': 添加投票时未获取到的错误' + fprint(i))
@@ -121,7 +123,7 @@ for username in user.keys():
         for i in range(0, add_topic_count):
 
             try:
-                print(nick + ': 添加话题 ' + ybtopic.topic(token, puid, group_id, channel_id).add(Get_yiju.text,getHitokoto(cat)) + fprint(i))
+                print(nick + ': 添加话题 ' + ybtopic.topic(token, puid, group_id, channel_id).add(get_yiju().text,getHitokoto(cat)) + fprint(i))
             except:
                 print(nick + ': 添加话题时未获取到的错误' + fprint(i))
             finally:
