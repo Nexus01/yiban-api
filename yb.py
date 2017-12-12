@@ -56,7 +56,7 @@ def get_LWL():
     return Get_LWL
 
 def wait():
-    return time.sleep(random.uniform(1000, 2000))
+    return time.sleep(random.uniform(100, 200))
 
 
 def fprint(I):
