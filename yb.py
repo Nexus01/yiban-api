@@ -12,6 +12,7 @@ import ybvote
 import ybtopic
 #import ybfeed
 from yblogin import BASEURL, getUserToken, getInfo
+import life
 
 r = requests.Session()
 
@@ -56,7 +57,20 @@ def get_LWL():
     return Get_LWL
 
 def wait():
-    return time.sleep(random.uniform(100, 200))
+    values = [1,2,3,4,5]
+    w = random.choice(values)
+    print( '执行第',w,'号方案' )
+    if(w == 1):
+        life.wake()
+    elif(w == 2):
+        life.breakfast()     
+    elif(w == 3):
+        life.onclass()
+    elif(w == 4):
+        life.lunch()
+    else:
+        life.rest()
+    return
 
 
 def fprint(I):
