@@ -43,6 +43,6 @@ def dinner():
     return time.sleep(interval)
 
 def bed():
-    interval = 3000
+    interval = random.uniform(20000,30000)
     print('the program will pause for',interval,'seconds')
     return time.sleep(interval)

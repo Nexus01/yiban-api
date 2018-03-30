@@ -13,6 +13,7 @@ import ybtopic
 #import ybfeed
 from yblogin import BASEURL, getUserToken, getInfo
 import life
+import gettime
 
 r = requests.Session()
 
@@ -43,10 +44,11 @@ def getHitokoto(CAT):
 '''
 获取一句古诗 (yiju API)
 https://yiju.ml/api/word.php
+'''
 def get_yiju():
     Get_yiju = r.get('https://yiju.ml/api/word.php', timeout=10)
     return Get_yiju
-'''
+
 
 '''
 获取LWL-Hitokoto API（一言-纯净API）
@@ -57,6 +59,7 @@ def get_LWL():
     return Get_LWL
 
 def wait():
+
     values = [1,2,3,4,5]
     w = random.choice(values)
     print( '执行第',w,'号方案' )
@@ -144,7 +147,9 @@ for username in user.keys():
         for i in range(0, add_topic_count):
 
             try:
-                print(nick + ': 添加话题 ' + ybtopic.topic(token, puid, group_id, channel_id).add(get_LWL().text,getHitokoto(cat)) + fprint(i))
+                '''print(nick + ': 添加话题 ' + ybtopic.topic(token, puid, group_id, channel_id).add(get_LWL().text,getHitokoto(cat)) + fprint(i))
+                '''
+                print(nick + ': 添加话题 ' + ybtopic.topic(token, puid, group_id, channel_id).add(get_LWL().text,get_yiju()) + fprint(i))
             except:
                 print(nick + ': 添加话题时未获取到的错误' + fprint(i))
             finally:
