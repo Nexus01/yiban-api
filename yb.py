@@ -17,6 +17,7 @@ import gettime
 
 r = requests.Session()
 
+isbednow='False'
 '''
 调用示例
 获取 EPGA 数值信息
@@ -59,7 +60,9 @@ def get_LWL():
     return Get_LWL
 
 def wait():
-
+    isbednow=gettime.gettime()
+    if(isbednow == 'True'):
+        life.bed()
     values = [1,2,3,4,5]
     w = random.choice(values)
     print( '执行第',w,'号方案' )
